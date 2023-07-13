@@ -1,0 +1,30 @@
+version: '3.2'
+services:
+  web:
+    image: "auth-project:v1"
+    hostname: "web.auth-project.com"
+    environment:
+      DB_USERS: root
+      DB_PASSWORD: Mehrab@123
+      DB_HOST: db.auth-project.com
+      DB_DATABASE: demo-auth
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: "mysql:8.0"
+    hostname: "db.auth-project.com"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Mehrab@123'
+      MYSQL_ROOT_USER: 'root'
+      MYSQL_DATABASE: 'demo-auth'
+    healthcheck:
+      test: [ "CMD", "mysql", "-u", "root", "-p", "status" ]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    ports:
+      - "3306:3306"

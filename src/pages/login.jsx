@@ -1,12 +1,12 @@
 
 import styles from "../styles/login.module.css"
-import Image from "next/image";
+
 
 import { signIn, useSession, signOut } from "next-auth/react"
 
 
 
-const login = () => {
+const Login = () => {
     const { data: session } = useSession();
     console.log(session)
 
@@ -36,4 +36,4 @@ const login = () => {
     }
 
 }
-export default login
+export default Login

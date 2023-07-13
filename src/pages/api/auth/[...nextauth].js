@@ -8,9 +8,7 @@ const prisma = new PrismaClient();
 export const authOptions = {
     secret: process.env.NEXT_PUBLIC_SECRET,
     adapter: PrismaAdapter(prisma),
-    session: {
-        strategy: "database"
-    },
+
     // Configure one or more authentication providers
     providers: [
         GithubProvider({
@@ -23,6 +21,9 @@ export const authOptions = {
         }),
         // ...add more providers here
     ],
+    session: {
+        strategy: "jwt"
+    },
     callBack: {
         async signIn({ user, account, profile, email, credentials }) {
             console.log(user)
