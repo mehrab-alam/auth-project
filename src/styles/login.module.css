@@ -1,0 +1,40 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loginContainer button {
+    width: 200px;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #000;
+    height: 50px;
+    font-size: 2rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.loginContainer button:hover {
+    background-color: #121277;
+    color: #fff;
+}
+
+.signOut {
+    width: 120px;
+    font-size: 1.5rem;
+    height: 40px;
+}
+
+.signOut:hover {
+    background-color: #121277;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
