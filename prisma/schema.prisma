@@ -50,3 +50,22 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+enum CourseType {
+    PAID
+    FREE
+}
+
+model CourseDetail {
+    courseId    Int        @id @default(autoincrement())
+    name        String
+    age         Int
+    email       String
+    mobile      String
+    courseType  CourseType @default(FREE)
+    coursePrice Float?     @default(0)
+    createdAt   DateTime   @default(now())
+    updatedAt   DateTime   @updatedAt
+
+    @@unique([name, courseId])
+}
